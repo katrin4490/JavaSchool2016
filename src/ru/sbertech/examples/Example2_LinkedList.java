@@ -29,6 +29,11 @@ public class Example2_LinkedList {
 
         System.out.println("--");
         System.out.println(p.peek());
+
+        System.out.println("--");
+
+        p.poll();
+        PersonFirstLoad.print(p);
     }
 
 }

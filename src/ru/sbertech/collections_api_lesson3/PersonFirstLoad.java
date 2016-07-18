@@ -19,6 +19,7 @@ public class PersonFirstLoad {
         persons.add(new Person(7L,"Павлов Иван Геннадьевич","79185551228"));
         persons.add(new Person(8L,"Романюта Александр Сергеевич","79185551227"));
         persons.add(new Person(9L,"Комягин Денис Михайлович","79185551226"));
+        persons.add(new Person(9L,"Комягин Денис Михайлович","79185551226"));
         persons.add(new Person(10L,"Чернявский Александр Игоревич","79185551225"));
         persons.add(new Person(11L,"Шмалько Светлана Григорьевна","79185551224"));
         persons.add(new Person(12L,"Малеванный Михаил Сергеевич","79185551223"));
