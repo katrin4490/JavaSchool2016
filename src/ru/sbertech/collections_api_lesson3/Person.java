@@ -50,7 +50,7 @@ public class Person implements Comparable<Person>{
 
     @Override
     public int compareTo(Person o) {
-        return this.getPhoneNumber().compareTo(o.getPhoneNumber());
+        return this.getName().compareTo(o.getName());
     }
 /*
     @Override

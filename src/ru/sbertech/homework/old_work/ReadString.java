@@ -1,4 +1,4 @@
-package ru.sbertech.homework;
+package ru.sbertech.homework.old_work;
 
 import java.io.File;
 import java.io.IOException;

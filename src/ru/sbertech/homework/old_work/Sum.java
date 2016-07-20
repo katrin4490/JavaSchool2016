@@ -1,4 +1,4 @@
-package ru.sbertech.homework;
+package ru.sbertech.homework.old_work;
 // посчитать сумму двух целых чисел
 import java.util.Scanner;
 public class Sum {

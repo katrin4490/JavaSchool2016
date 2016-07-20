@@ -1,4 +1,4 @@
-package ru.sbertech.homework;
+package ru.sbertech.homework.old_work;
 // задача: Заданы два массива целых чисел: a и b
 // вывести элементы массива а, которые встречаются в b
 import java.util.Scanner;
