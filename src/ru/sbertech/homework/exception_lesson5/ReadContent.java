@@ -11,10 +11,11 @@ public class ReadContent {
     public static void main (String[] args)  {
         System.out.println("Please enter URL");
         Scanner sc = new Scanner(System.in);
-        if (!Read(new String(sc.nextLine()))){
+        String url = sc.nextLine();
+        if (!Read(url)){
             System.out.println("Please enter an valid URL");
             sc = new Scanner(System.in);
-            if (!Read(new String(sc.nextLine())))
+            if (!Read(url))
                 System.out.println("Sorry, you have twice entered incorrect URL!");
         }
         sc.close();
