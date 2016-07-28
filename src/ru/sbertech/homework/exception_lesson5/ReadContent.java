@@ -1,4 +1,4 @@
-package ru.sbertech.homework.exception_lesson5;
+//package ru.sbertech.homework.exception_lesson5;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.net.HttpURLConnection;
