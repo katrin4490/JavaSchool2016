@@ -12,6 +12,11 @@ public class Test {
        // Arrays.asList(C.class.getDeclaredMethods()).forEach(System.out::println);
         try  {
             Field f = C.class.getDeclaredField("str");
+
+
+
+
+
             f.setAccessible(true);
             C c = new C();
 

@@ -10,7 +10,8 @@ import java.util.List;
 public class Test3 {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
-        List<String> loggedList = (List<String>) Proxy.newProxyInstance(
+        List<String> loggedList = (List<String>)
+                Proxy.newProxyInstance(
                 list.getClass().getClassLoader(),
                 list.getClass().getInterfaces(),
                 new InvocationHandlerImpl(list));
