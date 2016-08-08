@@ -1,2 +1,0 @@
-https://github.com/ilyhabayda/JavaSchoolRND2016 - ïåðâûå 7 ä.ç.
-https://github.com/ilyhabayda/javaHomeWork - ñ 8 ä.ç. ïðîåêò, ñîáðàííûé maven
