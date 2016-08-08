@@ -1,0 +1,2 @@
+https://github.com/skodzhaev/JavaSchoolRND/tree/master/ru/sbertech/test
+В каждой папке свое домашнее задание

@@ -1,0 +1,2 @@
+https://github.com/ilyhabayda/JavaSchoolRND2016 - первые 7 д.з.
+https://github.com/ilyhabayda/javaHomeWork - с 8 д.з. проект, собранный maven
