@@ -3,6 +3,7 @@ import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class DemoHW {
     interface MessageService {
@@ -35,13 +36,14 @@ public class DemoHW {
         }
 
         void start() {
+
             Console console = System.console();
             if (console == null) {
                 throw new IllegalStateException("Can't use console");
             }
+
             System.out.print("Enter your username: ");
             String username = console.readLine();
-
             String line;
             System.out.print("Enter message:");
             while ((line = console.readLine()) != null) {
@@ -52,6 +54,7 @@ public class DemoHW {
             System.out.println("End client!");
         }
     }
+
 
     static class Server {
         String lastReceivedMessageKey;
@@ -82,6 +85,7 @@ public class DemoHW {
     }
 
     public static void main(String[] args) {
+
         if (args.length != 1) {
             showUsage();
             return;
