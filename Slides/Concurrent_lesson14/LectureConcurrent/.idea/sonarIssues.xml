@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/GIT_BGP/bgp/bgp-api/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/GIT_BGP/bgp/bgp-client-env/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/GIT_BGP/bgp/bgp-ignite/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/GIT_BGP/bgp/bgp-module/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/GIT_BGP/bgp/bgp-service/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/GIT_BGP/bgp/mock-func/mock-func-module/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/GIT_BGP/bgp/mock-func/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/GIT_BGP/bgp/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/CyclicBarrier/P5_Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/CyclicBarrier/StartAllThreadSameTime.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/FutureTask/MyCallable.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/FutureTask/MyFutureRunnable.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/FutureTask/P4_Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/HiddenIterator/HiddenIterator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/Latch/LatchExample.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/Latch/P4_Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/Lock/ReadWriteMap.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/P1_ExecutorExample.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/P1_ExecutorExampleMain.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/P1_MyTask.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/P2_Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/P2_MyTaskCallable.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/P3_Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/Semafore/AddToSet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/Semafore/BoundedHashSet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/Semafore/Semafore_Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/Sync/SynchronousQueueDemo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/Yanis.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
