@@ -42,8 +42,8 @@ public class ContextImpl implements Context{
 
     @Override
     public void interrupt() {
-        for (MyRun r : this.myRuns) {
-            r.cancel();
+        for (int i = 0; i < this.myRuns.length; i++) {
+            this.myRuns[i].cancel();
         }
     }
 
