@@ -33,6 +33,7 @@ public class Main {
             for (int i = 0; i < count; i++) {
                 number1 = number2 = new Random().nextInt(15);
 //                number2 = new Random().nextInt(15);
+                //number1 = number2 = 15;
                 futures[i] = executorService.submit(new CalculatorCallable(c, number1, number2));
             }
         }
