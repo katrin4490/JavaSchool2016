@@ -1,5 +1,7 @@
 package ru.sbertech.homework.reflection_lesson6;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * Created by программист on 01.08.2016.
  */
@@ -19,5 +21,7 @@ public class MainProxy {
         System.out.println(c.calculate(3,4));
 
         System.out.println(c.calculate(4,4));
+
+
     }
 }
