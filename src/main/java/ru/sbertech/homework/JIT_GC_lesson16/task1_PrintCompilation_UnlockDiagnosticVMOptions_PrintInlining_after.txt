@@ -1,0 +1,96 @@
+     41    1       3       java.lang.Object::<init> (1 bytes)
+     42    2       3       java.lang.String::hashCode (55 bytes)
+     43    4     n 0       java.lang.System::arraycopy (native)   (static)
+     44    3       3       java.lang.String::equals (81 bytes)
+     45    7       3       java.lang.String::indexOf (70 bytes)
+                              @ 66   java.lang.String::indexOfSupplementary (71 bytes)   callee is too large
+     47    9       3       java.lang.String::charAt (29 bytes)
+                              @ 18  java/lang/StringIndexOutOfBoundsException::<init> (not loaded)   not inlineable
+     49   10       3       java.lang.CharacterData::of (120 bytes)
+     50   11       3       java.lang.CharacterDataLatin1::getProperties (11 bytes)
+     51   12       3       java.lang.String::length (6 bytes)
+     52    8       3       java.lang.Math::min (11 bytes)
+     53    5       3       java.lang.String::<init> (82 bytes)
+                              @ 1   java.lang.Object::<init> (1 bytes)
+                              @ 13  java/lang/StringIndexOutOfBoundsException::<init> (not loaded)   not inlineable
+                              @ 30  java/lang/StringIndexOutOfBoundsException::<init> (not loaded)   not inlineable
+                              @ 65  java/lang/StringIndexOutOfBoundsException::<init> (not loaded)   not inlineable
+                              @ 75   java.util.Arrays::copyOfRange (63 bytes)   callee is too large
+     61   14       3       java.lang.Character::toLowerCase (9 bytes)
+                              @ 1   java.lang.CharacterData::of (120 bytes)   callee is too large
+                              @ 5   java.lang.CharacterData::toLowerCase (0 bytes)   no static binding
+     64   21       4       java.lang.String::charAt (29 bytes)
+     64   18       1       java.lang.CharacterDataLatin1::getProperties (11 bytes)
+     66   11       3       java.lang.CharacterDataLatin1::getProperties (11 bytes)   made not entrant
+     67    9       3       java.lang.String::charAt (29 bytes)   made not entrant
+     68   13       3       java.lang.AbstractStringBuilder::ensureCapacityInternal (16 bytes)
+                              @ 12   java.lang.AbstractStringBuilder::expandCapacity (50 bytes)   callee is too large
+     79   47       4       java.lang.String::<init> (82 bytes)
+     80   46       4       java.lang.Math::min (11 bytes)
+     81   22       1       java.lang.Object::<init> (1 bytes)
+                              @ 1   java.lang.Object::<init> (1 bytes)   inline (hot)
+                              @ 75   java.util.Arrays::copyOfRange (63 bytes)   inline (hot)
+                                @ 54   java.lang.Math::min (11 bytes)   (intrinsic)
+                                @ 57   java.lang.System::arraycopy (0 bytes)   (intrinsic)
+     95    1       3       java.lang.Object::<init> (1 bytes)   made not entrant
+     96    8       3       java.lang.Math::min (11 bytes)   made not entrant
+     97    5       3       java.lang.String::<init> (82 bytes)   made not entrant
+     98   24       1       java.lang.String::length (6 bytes)
+     99   48       4       java.lang.AbstractStringBuilder::ensureCapacityInternal (16 bytes)
+    100   12       3       java.lang.String::length (6 bytes)   made not entrant
+    106   43       2       java.lang.Integer::stringSize (21 bytes)
+                              @ 12   java.lang.AbstractStringBuilder::expandCapacity (50 bytes)   too big
+    108   44       2       java.lang.Integer::getChars (131 bytes)
+    108   13       3       java.lang.AbstractStringBuilder::ensureCapacityInternal (16 bytes)   made not entrant
+    110   49       4       java.lang.Integer::stringSize (21 bytes)
+    112   34       2       java.util.HashMap::putVal (300 bytes)
+                              @ 20   java.util.HashMap::resize    113   43       2       java.lang.Integer::stringSize (21 bytes)   made not entrant
+    117   50       4       java.lang.Integer::getChars (131 bytes)
+ (359 bytes)   callee is too large
+                              @ 56   java.util.HashMap::newNode (13 bytes)   no static binding
+                              @ 91   java.lang.Object::equals (11 bytes)   no static binding
+    121   44       2       java.lang.Integer::getChars (131 bytes)   made not entrant
+                              @ 123   java.util.HashMap$TreeNode::putTreeVal (314 bytes)   not inlineable
+                              @ 152   java.util.HashMap::newNode (13 bytes)   no static binding
+                              @ 169   java.util.HashMap::treeifyBin (110 bytes)   callee is too large
+                              @ 203   java.lang.Object::equals (11 bytes)   no static binding
+                              @ 253   java.util.HashMap::afterNodeAccess (1 bytes)   no static binding
+                              @ 288   java.util.HashMap::resize (359 bytes)   callee is too large
+                              @ 295   java.util.HashMap::afterNodeInsertion (1 bytes)   no static binding
+    142   23       2       java.lang.String::getChars (62 bytes)
+    146   51       4       java.util.HashMap::putVal (300 bytes)
+    147   52 %     4       java.util.HashMap::resize @ 154 (359 bytes)
+                              @ 9  java/lang/StringIndexOutOfBoundsException::<init> (not loaded)                              @ 56   java.util.HashMap::newNode (13 bytes)   inline (hot)
+                               \-> TypeProfile (44318/44318 counts) = java/util/HashMap
+                                @ 9   java.util.HashMap$Node::<init> (26 bytes)   inline (hot)
+                                  @ 1   java.lang.Object::<init> (1 bytes)   inline (hot)
+                              @ 288   java.util.HashMap::resize (359 bytes)   too big
+                              @ 295   java.util.HashMap::afterNodeInsertion (1 bytes)   inline (hot)
+   not inlineable
+                              @ 27  java/lang/StringIndexOutOfBoundsException::<init> (not loaded)   not inlineable
+                              @ 43  java/lang/StringIndexOutOfBoundsException::    165   34       2       java.util.HashMap::putVal (300 bytes)   made not entrant
+<init> (not loaded)   not inlineable
+    175   50       4       java.lang.Integer::getChars (131 bytes)   made not entrant
+                              @ 58   java.lang.System::arraycopy (0 bytes)   intrinsic
+    177   53       3       java.lang.Integer::getChars (131 bytes)
+    178   25       2       java.lang.AbstractStringBuilder::append (50 bytes)
+    179   54       4       java.lang.String::getChars (62 bytes)
+                              @ 5   java.lang.AbstractStringBuilder::appendNull                              @ 58   java.lang.System::arraycopy (0 bytes)   (intrinsic)
+ (56 bytes)    190   55       4       java.lang.Integer::getChars (131 bytes)
+    191   23       2       java.lang.String::getChars (62 bytes)   made not entrant
+   callee is too large
+                              @ 10   java.lang.String::length (6 bytes)
+                              @ 21   java.lang.AbstractStringBuilder::ensureCapacityInternal (16 bytes)
+                                @ 12   java.lang.AbstractStringBuilder::expandCapacity (50 bytes)   callee is too large
+    203   53       3       java.lang.Integer::getChars (131 bytes)   made not entrant
+                              @ 35   java.lang.String::getChars (62 bytes)   callee is too large
+    205   26       2       java.lang.StringBuilder::append (8 bytes)
+                              @ 2   java.lang.AbstractStringBuilder::append    207   56       4       java.lang.AbstractStringBuilder::append (50 bytes)
+ (50 bytes)   callee is too large
+    208   57       4       java.util.HashMap::resize (359 bytes)
+                              @ 10   java.lang.String::length (6 bytes)   inline (hot)
+                              @ 21   java.lang.AbstractStringBuilder::ensureCapacityInternal (16 bytes)   inline (hot)
+                                @ 12   java.lang.AbstractStringBuilder::expandCapacity (50 bytes)   too big
+                              @ 35   java.lang.String::getChars (62 bytes)   inline (hot)
+                                @ 58   java.lang.System::arraycopy (0 bytes)   (intrinsic)
+    220   27       2       java.util.HashMap::hash (20 bytes)
