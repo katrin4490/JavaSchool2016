@@ -1,6 +1,5 @@
 package ru.sbertech.good_code_lesson17;
 
-import java.util.concurrent.locks.Lock;
 
 public class Document {
 
