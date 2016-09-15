@@ -1,8 +1,11 @@
 package ru.sbertech.homework.patterns_lesson19.command;
 
-/**
- * Created by программист on 14.09.2016.
- */
+// Действие инкапсулируется в объект.
+// Объект команды заключает в себе само действие и его параметры.
+// - параметризация объектов выполняемым действием;
+// - определять запрос, ставить его в очередь или выполнять его в разное время.
+
+
 public class Main {
     public static void main(String[] args) {
         Photo photo = new Photo();
@@ -22,6 +25,10 @@ public class Main {
         System.out.println(photo.toString());
 
         photoEditor.undo();
+        System.out.println(photo.toString());
+
+        EditColorCommand editColorCommand = new EditColorCommand("Красный");
+        photoEditor.excecute(editColorCommand);
         System.out.println(photo.toString());
     }
 }

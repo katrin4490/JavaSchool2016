@@ -1,5 +1,10 @@
 package ru.sbertech.homework.patterns_lesson19.chain_of_responsibility;
 
+// Предназначенный для организации в системе уровней ответственности.
+
+//Cообщения в системе обрабатываются по схеме «обработай сам либо перешли другому»,
+// то есть одни сообщения обрабатываются на том уровне, где они получены, а другие пересылаются объектам иного уровня
+
 public class Main {
     public static void main(String[] args) {
         MyFile file = new MyFile("file.docx");
