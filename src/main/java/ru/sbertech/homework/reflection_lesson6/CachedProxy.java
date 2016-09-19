@@ -1,13 +1,11 @@
 package ru.sbertech.homework.reflection_lesson6;
 
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class CachedProxy {
     static final class Args {
