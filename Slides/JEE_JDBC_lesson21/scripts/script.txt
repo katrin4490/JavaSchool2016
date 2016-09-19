@@ -1,0 +1,198 @@
+create table albums(ID NUMBER, NAME VARCHAR2(1000)) as
+
+select rownum, tab.* from (
+select 'Obscured by Clouds' from dual union
+select 'Atom Heart Mother' from dual union
+select 'The Endless River' from dual union
+select 'The Endless River' from dual union
+select 'The Endless River' from dual union
+select 'The Wall' from dual union
+select 'The Wall' from dual union
+select 'The Wall' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'Shine On box set (includes The Early Singles)' from dual union
+select 'Relics' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'Atom Heart Mother' from dual union
+select 'The Endless River' from dual union
+select 'Relics' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'The Wall' from dual union
+select 'Obscured by Clouds' from dual union
+select '1965: Their First Recordings' from dual union
+select 'The Endless River' from dual union
+select 'Shine On box set (includes The Early Singles)' from dual union
+select 'Relics' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'Obscured by Clouds' from dual union
+select 'More' from dual union
+select 'The Division Bell' from dual union
+select 'Zabriskie Point' from dual union
+select 'The Wall' from dual union
+select 'The Division Bell' from dual union
+select 'A Saucerful of Secrets' from dual union
+select 'Zabriskie Point' from dual union
+select 'Zabriskie Point' from dual union
+select 'More' from dual union
+select 'More' from dual union
+select 'Animals' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'The Wall' from dual union
+select '1965: Their First Recordings' from dual union
+select 'More' from dual union
+select 'The Endless River' from dual union
+select 'Meddle' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'Picnic – A Breath of Fresh Air' from dual union
+select 'The Wall' from dual union
+select 'The Endless River' from dual union
+select 'Atom Heart Mother' from dual union
+select 'Meddle' from dual union
+select 'The Final Cut' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'The Final Cut' from dual union
+select 'Obscured by Clouds' from dual union
+select 'The Final Cut' from dual union
+select 'Music from The Body' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'Obscured by Clouds' from dual union
+select 'The Wall' from dual union
+select 'The Wall' from dual union
+select 'Ummagumma' from dual union
+select 'Ummagumma' from dual union
+select 'The Division Bell' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'More' from dual union
+select 'The Final Cut' from dual union
+select 'The Wall' from dual union
+select 'The Dark Side of the Moon(Immersion edition)' from dual union
+select 'Wish You Were Here' from dual union
+select 'Zabriskie Point' from dual union
+select 'The Final Cut' from dual union
+select 'The Wall' from dual union
+select 'The Division Bell' from dual union
+select 'More' from dual union
+select 'Atom Heart Mother' from dual union
+select '1965: Their First Recordings' from dual union
+select 'The Wall' from dual union
+select 'The Wall' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'The Wall' from dual union
+select 'Shine On box set (includes The Early Singles)' from dual union
+select 'The Endless River' from dual union
+select 'A Saucerful of Secrets' from dual union
+select 'Relics' from dual union
+select 'The Division Bell' from dual union
+select 'Is There Anybody Out There? The Wall Live 1980–81' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'A Saucerful of Secrets' from dual union
+select 'The Endless River' from dual union
+select 'The Division Bell' from dual union
+select 'The Endless River' from dual union
+select 'Zabriskie Point (Extended 1997 Release)' from dual union
+select 'Zabriskie Point (Extended 1997 Release)' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select '1965: Their First Recordings' from dual union
+select 'More' from dual union
+select 'The Division Bell' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'Unreleased' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'More' from dual union
+select 'The Wall' from dual union
+select 'Obscured by Clouds' from dual union
+select 'Ummagumma' from dual union
+select 'The Endless River' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'Tonite Lets All Make Love in London (Extended 1990 Release)' from dual union
+select 'The Endless River' from dual union
+select 'More' from dual union
+select 'The Wall' from dual union
+select 'The Final Cut' from dual union
+select 'Obscured by Clouds' from dual union
+select 'The Endless River' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'The Wall' from dual union
+select 'The Final Cut' from dual union
+select 'Meddle' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'The Wall' from dual union
+select 'Relics' from dual union
+select 'The Final Cut' from dual union
+select 'More' from dual union
+select 'Animals' from dual union
+select 'Animals' from dual union
+select 'Animals' from dual union
+select 'Meddle' from dual union
+select 'Shine On box set (includes The Early Singles)' from dual union
+select 'The Division Bell' from dual union
+select 'The Final Cut' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'More' from dual union
+select 'A Saucerful of Secrets' from dual union
+select '1965: Their First Recordings' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'The Wall' from dual union
+select 'Meddle' from dual union
+select 'A Saucerful of Secrets' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'Unreleased' from dual union
+select 'Meddle' from dual union
+select 'Relics' from dual union
+select 'A Saucerful of Secrets' from dual union
+select 'A Saucerful of Secrets' from dual union
+select 'Ummagumma' from dual union
+select 'Animals' from dual union
+select 'Wish You Were Here' from dual union
+select 'The Endless River' from dual union
+select 'The Wall' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'Pulse (Cassette edition only)' from dual union
+select 'The Final Cut' from dual union
+select 'More' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'Obscured by Clouds' from dual union
+select 'The Wall' from dual union
+select 'The Endless River' from dual union
+select 'Atom Heart Mother' from dual union
+select 'The Endless River' from dual union
+select 'Ummagumma' from dual union
+select 'The Division Bell' from dual union
+select 'The Piper at the Gates of Dawn' from dual union
+select 'The Endless River' from dual union
+select 'The Endless River' from dual union
+select 'The Endless River' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'The Wall' from dual union
+select 'The Endless River' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'The Dark Side of the Moon(Immersion edition)' from dual union
+select 'The Wall' from dual union
+select 'The Final Cut' from dual union
+select 'Zabriskie Point (Extended 1997 Release)' from dual union
+select 'The Endless River' from dual union
+select 'The Endless River' from dual union
+select 'More' from dual union
+select 'The Dark Side of the Moon' from dual union
+select 'Unreleased' from dual union
+select 'The Wall' from dual union
+select 'The Wall' from dual union
+select '1965: Their First Recordings' from dual union
+select 'The Division Bell' from dual union
+select 'Wish You Were Here' from dual union
+select 'The Division Bell' from dual union
+select 'Is There Anybody Out There? The Wall Live 1980–81' from dual union
+select 'The Final Cut (2004 re-release)' from dual union
+select 'Obscured by Clouds' from dual union
+select 'Wish You Were Here (Experience and Immersion editions)' from dual union
+select 'Wish You Were Here' from dual union
+select 'Obscured by Clouds' from dual union
+select 'A Momentary Lapse of Reason' from dual union
+select 'The Wall' from dual union
+select 'The Final Cut' from dual
+) tab
