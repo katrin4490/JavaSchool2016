@@ -14,24 +14,29 @@ public class Main {
             conn.setAutoCommit(false);
 
             PreparedStatement preparedStatement = conn.prepareStatement("insert into songs(NAME) values (?)");
+
+            Savepoint savepoint = conn.setSavepoint("MY FIRST SAVE POINT");
+
             preparedStatement.setString(1, "MySong");
             preparedStatement.execute();
 
-            Logger logger = new Logger();
-            logger.setStr("MySong2");
-            Thread t = new Thread(logger);
-            t.start();
-            try {
-                t.join();
-            } catch (InterruptedException e){
-                e.printStackTrace();
-            }
+            //Logger logger = new Logger();
+            //logger.setStr("MySong2");
+//            Thread t = new Thread(logger);
+//            t.start();
+//            try {
+//                t.join();
+//            } catch (InterruptedException e){
+//                e.printStackTrace();
+//            }
 
-            preparedStatement.setString(1, "MySong3");
+            conn.rollback(savepoint);
+
+            preparedStatement.setString(1, "MySong2");
             preparedStatement.execute();
 
-            conn.rollback();
-            //conn.commit();
+            //conn.rollback();
+            conn.commit();
 
             conn.close();
         }
