@@ -1,4 +1,4 @@
-package ru.sbertech.jdbc_lesson21;
+package ru.sbertech.jdbc_lesson21_lesson23.lesson21;
 
 import java.sql.*;
 

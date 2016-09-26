@@ -112,7 +112,7 @@ public class CachedProxy {
                             preparedStatement.setInt(2, b);
                             ResultSet resultSet = preparedStatement.executeQuery();
                             if (resultSet.next()) {
-                                System.out.println("cach from database: ");
+                                System.out.println("cache from database: ");
                                 result = resultSet.getInt("sum");
                             } else {
                                 result = method.invoke(code, args);
@@ -128,7 +128,7 @@ public class CachedProxy {
                     argsToOutput.put(input, result);
                 }
                 else
-                    System.out.println("cach: ");
+                    System.out.println("cache: ");
                 return result;
             }
         });
