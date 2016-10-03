@@ -8,16 +8,12 @@ public class Account {
     private Client client;
     private BigDecimal saldo;
 
-    public Account() {
-    }
-
-    public Account(long id, String accNumber, Client client, BigDecimal saldo, boolean isAddToDB){
+    public Account(long id, String accNumber, Client client, BigDecimal saldo) {
         this.id = id;
         this.accNumber = accNumber;
         this.client = client;
         this.saldo = saldo;
-        if (isAddToDB)
-            this.insertToDataBase();
+        this.insertToDataBase();
     }
     public long getId() {
         return id;

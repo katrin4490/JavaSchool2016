@@ -13,7 +13,6 @@ public class DataConnection {
     public static boolean createClientTable() {
         try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement("create table " + CLIENT_TABLE + " (id BIGINT PRIMARY KEY AUTO_INCREMENT, name varchar2(2000))");) {
             preparedStatement.execute();
-            preparedStatement.close();
             return true;
         } catch (SQLException e){
             System.err.println("Не удалось создать таблицу: " + CLIENT_TABLE);
@@ -23,7 +22,6 @@ public class DataConnection {
     public static boolean createAccountTable() {
         try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement("create table " + ACCOUNT_TABLE + " (id BIGINT PRIMARY KEY AUTO_INCREMENT, saldo DECIMAL, number VARCHAR2(2000), idClient BIGINT)")) {
             preparedStatement.execute();
-            preparedStatement.close();
             return true;
         } catch (SQLException e){
             System.err.println("Не удалось создать таблицу: " + ACCOUNT_TABLE);
@@ -33,7 +31,6 @@ public class DataConnection {
     public static boolean createDocumentTable() {
         try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement("create table " + DOCUMENT_TABLE + " (id BIGINT PRIMARY KEY AUTO_INCREMENT, accDT BIGINT, accCT BIGINT, summa DECIMAL, purpose VARCHAR2(2000), date DATE)")) {
             preparedStatement.execute();
-            preparedStatement.close();
             return true;
         } catch (SQLException e){
             System.err.println("Не удалось создать таблицу: " + DOCUMENT_TABLE);
@@ -46,7 +43,6 @@ public class DataConnection {
             preparedStatement.setLong(1, id);
             preparedStatement.setString(2, name);
             preparedStatement.execute();
-            preparedStatement.close();
             return true;
         } catch (SQLException e){
             System.err.println("Ошибка добавления данных в таблицу: " + CLIENT_TABLE);
@@ -60,7 +56,6 @@ public class DataConnection {
             preparedStatement.setString(3, number);
             preparedStatement.setLong(4, idClient);
             preparedStatement.execute();
-            preparedStatement.close();
             return true;
         } catch (SQLException e){
             System.err.println("Ошибка добавления данных в таблицу: " + ACCOUNT_TABLE);
@@ -77,7 +72,6 @@ public class DataConnection {
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
             preparedStatement.setDate(6, sqlDate);
             preparedStatement.execute();
-            preparedStatement.close();
             return true;
         } catch (SQLException e){
             System.err.println("Ошибка добавления данных в таблицу: " + DOCUMENT_TABLE);
@@ -104,7 +98,6 @@ public class DataConnection {
             preparedStatement.setBigDecimal(1, reduceSaldo);
             preparedStatement.setLong(2, id);
             preparedStatement.execute();
-            preparedStatement.close();
             return true;
         } catch (SQLException e){
             System.err.println("Не удалось снять : " + reduceSaldo + " с счета ID = " + id);
@@ -116,7 +109,6 @@ public class DataConnection {
             preparedStatement.setBigDecimal(1, reduceSaldo);
             preparedStatement.setLong(2, id);
             preparedStatement.execute();
-            preparedStatement.close();
             return true;
         } catch (SQLException e){
             System.err.println("Не удалось зачислить : " + reduceSaldo + " на счет ID = " + id);
@@ -124,7 +116,7 @@ public class DataConnection {
         }
     }
 
-    public static ResultSet getHistoryCreditClient(long idClient) {
+    public static void printHistoryCreditClient(long idClient) {
         try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement(
                 "SELECT " + CLIENT_TABLE + ".id, " + CLIENT_TABLE + ".name, " + ACCOUNT_TABLE + ".number, " + DOCUMENT_TABLE + ".summa, " + ACCOUNT_TABLE + ".saldo" +
                 " FROM "+ CLIENT_TABLE + " INNER JOIN " + ACCOUNT_TABLE + " ON " + CLIENT_TABLE + ".id = " + ACCOUNT_TABLE + ".idclient" +
@@ -135,11 +127,11 @@ public class DataConnection {
             preparedStatement.setLong(1, idClient);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                System.out.println("-----------------------");
                 System.out.println("Номер счета: " + resultSet.getString("number"));
                 System.out.println("Тип операции: Зачисление");
                 System.out.println("Сумма: " + resultSet.getBigDecimal("summa"));
             }
-            return resultSet;
            // return preparedStatement.executeQuery();
             //ResultSet resultSet = preparedStatement.executeQuery();
 //            if (resultSet.next()) {
@@ -149,11 +141,9 @@ public class DataConnection {
 //            }
         } catch (SQLException e){
             System.err.println("Ошибка распечатки высписки по клиенту ID = " + idClient);
-            return null;
         }
     }
-
-    public static ResultSet getHistoryDebitClient(long idClient) {
+    public static void printHistoryDebitClient(long idClient) {
         try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement(
                 "SELECT " + CLIENT_TABLE + ".id, " + CLIENT_TABLE + ".name, " + ACCOUNT_TABLE + ".number, " + DOCUMENT_TABLE + ".summa, " + ACCOUNT_TABLE + ".saldo" +
                         " FROM "+ CLIENT_TABLE + " INNER JOIN " + ACCOUNT_TABLE + " ON " + CLIENT_TABLE + ".id = " + ACCOUNT_TABLE + ".idclient" +
@@ -164,11 +154,11 @@ public class DataConnection {
             preparedStatement.setLong(1, idClient);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                System.out.println("-----------------------");
                 System.out.println("Номер счета: " + resultSet.getString("number"));
-                System.out.println("Тип операции: Зачисление");
+                System.out.println("Тип операции: Снятие");
                 System.out.println("Сумма: " + resultSet.getBigDecimal("summa"));
             }
-            return resultSet;
             //return preparedStatement.executeQuery();
 //            ResultSet resultSet = preparedStatement.executeQuery();
 //            if (resultSet.next()) {
@@ -178,7 +168,48 @@ public class DataConnection {
 //            }
         } catch (SQLException e){
             System.err.println("Ошибка распечатки высписки по клиенту ID = " + idClient);
+
+        }
+    }
+
+    public static Client getClientById(long id) {
+        try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement("SELECT * FROM " + CLIENT_TABLE + " WHERE id = ?")) {
+            preparedStatement.setLong(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                Client client = new Client(id, resultSet.getString("name"));
+                return client;
+            }
             return null;
+        } catch (SQLException e){
+            System.err.println("Не найти в БД клиента с ID = " + id);
+            return null;
+        }
+    }
+    public static Account getAccountById(long id) {
+        try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement("SELECT * FROM " + ACCOUNT_TABLE + " WHERE id = ?")) {
+            preparedStatement.setLong(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()){
+                Client client = getClientById(resultSet.getLong("idClient"));
+                Account account = new Account(id,  resultSet.getString("number"), client, resultSet.getBigDecimal("saldo"));
+                return account;
+            }
+            return null;
+        } catch (SQLException e){
+            System.err.println("Не найти в БД счет с ID = " + id);
+            return null;
+        }
+    }
+
+    public static boolean updateClient(String name) {
+        try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement("UPDATE " + CLIENT_TABLE + " SET name = ? WHERE id = ?)")) {
+            preparedStatement.setString(1, name);
+            preparedStatement.execute();
+            return true;
+        } catch (SQLException e){
+            System.err.println("Ошибка обновления данных в таблице: " + CLIENT_TABLE);
+            return false;
         }
     }
 }

@@ -53,8 +53,8 @@ public class DocumentManager {
     }
 
     public static void printHistory(Client client){
-        ResultSet resultSetCredit = DataConnection.getHistoryCreditClient(client.getId());
-        ResultSet resultSetDebit = DataConnection.getHistoryDebitClient(client.getId());
+        DataConnection.printHistoryCreditClient(client.getId());
+        DataConnection.printHistoryDebitClient(client.getId());
         return;
 //        if (resultSetCredit == null || resultSetDebit == null){
 //            System.out.println("По клиенту: " + client.getName() + "   нет никаких операций");

@@ -5,14 +5,10 @@ public class Client {
     private long id;
     private String name;
 
-    public Client(){
-    }
-
-    public Client(long id, String name, boolean isAddToDB){
+    public Client(long id, String name){
         this.id = id;
         this.name = name;
-        if (isAddToDB)
-            this.insertToDataBase();
+        this.insertToDataBase();
     }
 
     public long getId() {
@@ -33,6 +29,9 @@ public class Client {
 
     public boolean insertToDataBase(){
         return DataConnection.insertClient(getId(), getName());
+    }
+    public boolean saveUpdateToDataBase(){
+        return DataConnection.updateClient(getName());
     }
 
     @Override
