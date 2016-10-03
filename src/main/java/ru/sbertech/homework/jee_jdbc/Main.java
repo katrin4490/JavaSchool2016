@@ -7,23 +7,17 @@ import java.util.Date;
 public class Main {
     public static void main(String[] args) {
         DBConnection dbConnection = new DBConnection();
-        DataConnection.createAccountTable();
-        DataConnection.createClientTable();
-        DataConnection.createDocumentTable();
-
-        Client client = new Client(3, "Иванов Иван Иванович");
-        DataConnection.insertClient(client.getId(), client.getName());
-
-        Client client2 = new Client(4, "Петров Петр Петрович");
-        DataConnection.insertClient(client2.getId(), client2.getName());
-
-        Account account = new Account(1, "N1", client, new BigDecimal(500));
-        DataConnection.insertAccount(account.getId(), account.getSaldo(), account.getAccNumber(), account.getClient().getId());
-
-        Account account2 = new Account(2, "N2", client2, new BigDecimal(1000));
-        DataConnection.insertAccount(account2.getId(), account2.getSaldo(), account2.getAccNumber(), account2.getClient().getId());
-
-        DocumentManager.run(1, account, account2, new BigDecimal(800), "Перевод денежных средств", new Date());
+       // DataConnection.createAccountTable();
+        //DataConnection.createClientTable();
+        //DataConnection.createDocumentTable();
+        Client client = new Client(8, "Иванов Иван Иванович", false);
+        DocumentManager.printHistory(client);
+//        Client client2 = new Client(8, "Иванов Иван Иванович", false);
+//        Client client = new Client(12, "Петров Петр Петрович", false);
+//        Account account2 = new Account(11, "N1", client2, new BigDecimal(500), false);
+//        Account account = new Account(22, "N2", client, new BigDecimal(1000), false);
+//
+//        DocumentManager.run(5, account, account2, new BigDecimal(5), "Перевод денежных средств", new Date());
 
         dbConnection.disconnect();
     }

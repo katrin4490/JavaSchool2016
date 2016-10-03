@@ -8,9 +8,11 @@ public class Client {
     public Client(){
     }
 
-    public Client(long id, String name){
+    public Client(long id, String name, boolean isAddToDB){
         this.id = id;
         this.name = name;
+        if (isAddToDB)
+            this.insertToDataBase();
     }
 
     public long getId() {
@@ -27,6 +29,10 @@ public class Client {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean insertToDataBase(){
+        return DataConnection.insertClient(getId(), getName());
     }
 
     @Override

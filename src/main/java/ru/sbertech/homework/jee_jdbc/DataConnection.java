@@ -99,4 +99,86 @@ public class DataConnection {
             return null;
         }
     }
+    public static boolean reduceSaldoByIdAccount(long id, BigDecimal reduceSaldo) {
+        try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement("UPDATE " + ACCOUNT_TABLE + " SET saldo = saldo - ? WHERE id = ?")) {
+            preparedStatement.setBigDecimal(1, reduceSaldo);
+            preparedStatement.setLong(2, id);
+            preparedStatement.execute();
+            preparedStatement.close();
+            return true;
+        } catch (SQLException e){
+            System.err.println("Не удалось снять : " + reduceSaldo + " с счета ID = " + id);
+            return false;
+        }
+    }
+    public static boolean addedSaldoByIdAccount(long id, BigDecimal reduceSaldo) {
+        try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement("UPDATE " + ACCOUNT_TABLE + " SET saldo = saldo + ? WHERE id = ?")) {
+            preparedStatement.setBigDecimal(1, reduceSaldo);
+            preparedStatement.setLong(2, id);
+            preparedStatement.execute();
+            preparedStatement.close();
+            return true;
+        } catch (SQLException e){
+            System.err.println("Не удалось зачислить : " + reduceSaldo + " на счет ID = " + id);
+            return false;
+        }
+    }
+
+    public static ResultSet getHistoryCreditClient(long idClient) {
+        try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement(
+                "SELECT " + CLIENT_TABLE + ".id, " + CLIENT_TABLE + ".name, " + ACCOUNT_TABLE + ".number, " + DOCUMENT_TABLE + ".summa, " + ACCOUNT_TABLE + ".saldo" +
+                " FROM "+ CLIENT_TABLE + " INNER JOIN " + ACCOUNT_TABLE + " ON " + CLIENT_TABLE + ".id = " + ACCOUNT_TABLE + ".idclient" +
+                " INNER JOIN " + DOCUMENT_TABLE + " ON " +DOCUMENT_TABLE + ".accCT = " + ACCOUNT_TABLE + ".id" +
+                " WHERE "+ CLIENT_TABLE + ".id = ?"
+
+        )) {
+            preparedStatement.setLong(1, idClient);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println("Номер счета: " + resultSet.getString("number"));
+                System.out.println("Тип операции: Зачисление");
+                System.out.println("Сумма: " + resultSet.getBigDecimal("summa"));
+            }
+            return resultSet;
+           // return preparedStatement.executeQuery();
+            //ResultSet resultSet = preparedStatement.executeQuery();
+//            if (resultSet.next()) {
+//                return resultSet;
+//            } else {
+//                return null;
+//            }
+        } catch (SQLException e){
+            System.err.println("Ошибка распечатки высписки по клиенту ID = " + idClient);
+            return null;
+        }
+    }
+
+    public static ResultSet getHistoryDebitClient(long idClient) {
+        try (PreparedStatement preparedStatement = DBConnection.conn.prepareStatement(
+                "SELECT " + CLIENT_TABLE + ".id, " + CLIENT_TABLE + ".name, " + ACCOUNT_TABLE + ".number, " + DOCUMENT_TABLE + ".summa, " + ACCOUNT_TABLE + ".saldo" +
+                        " FROM "+ CLIENT_TABLE + " INNER JOIN " + ACCOUNT_TABLE + " ON " + CLIENT_TABLE + ".id = " + ACCOUNT_TABLE + ".idclient" +
+                        " INNER JOIN " + DOCUMENT_TABLE + " ON " +DOCUMENT_TABLE + ".accDT = " + ACCOUNT_TABLE + ".id" +
+                        " WHERE "+ CLIENT_TABLE + ".id = ?"
+
+        )) {
+            preparedStatement.setLong(1, idClient);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println("Номер счета: " + resultSet.getString("number"));
+                System.out.println("Тип операции: Зачисление");
+                System.out.println("Сумма: " + resultSet.getBigDecimal("summa"));
+            }
+            return resultSet;
+            //return preparedStatement.executeQuery();
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            if (resultSet.next()) {
+//                return resultSet;
+//            } else {
+//                return null;
+//            }
+        } catch (SQLException e){
+            System.err.println("Ошибка распечатки высписки по клиенту ID = " + idClient);
+            return null;
+        }
+    }
 }

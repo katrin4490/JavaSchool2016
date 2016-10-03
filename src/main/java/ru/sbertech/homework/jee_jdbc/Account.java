@@ -10,11 +10,14 @@ public class Account {
 
     public Account() {
     }
-    public Account(long id, String accNumber, Client client, BigDecimal saldo){
+
+    public Account(long id, String accNumber, Client client, BigDecimal saldo, boolean isAddToDB){
         this.id = id;
         this.accNumber = accNumber;
         this.client = client;
         this.saldo = saldo;
+        if (isAddToDB)
+            this.insertToDataBase();
     }
     public long getId() {
         return id;
@@ -53,6 +56,10 @@ public class Account {
         this.accNumber = accNumber;
         this.client = client;
         this.saldo = saldo;
+    }
+
+    public boolean insertToDataBase(){
+        return DataConnection.insertAccount(getId(), getSaldo(), getAccNumber(), getClient().getId());
     }
 
     @Override

@@ -26,10 +26,14 @@ public class DBConnection {
         if (conn != null){
             try{
                 conn.close();
-                System.err.println("Соединение с БД H2 остановлено");
+                System.out.println("Соединение с БД H2 остановлено");
             } catch (SQLException e){
                 System.err.println("Не удалось закрыть соединение");
             }
         }
+    }
+
+    public static Connection newConnection()throws SQLException{
+        return DriverManager.getConnection(URL, LOGIN, PASSWORD);
     }
 }
