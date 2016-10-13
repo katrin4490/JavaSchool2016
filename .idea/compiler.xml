@@ -22,11 +22,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="App" />
         <module name="bigAppl" />
         <module name="JavaSchool2016" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="App" target="1.8" />
       <module name="bigAppl" target="1.8" />
       <module name="JavaSchool2016" target="1.8" />
     </bytecodeTargetLevel>
