@@ -1,26 +1,47 @@
 package logic;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
-import javax.transaction.Transactional;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "documents")
-public class Document implements Serializable{
+@Table(name = "document")
+public class Document {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "accDT", referencedColumnName = "ID")
     private Account accDT;
+
+    @ManyToOne
+    @JoinColumn(name = "accCT ", referencedColumnName = "ID")
     private Account accCT;
+
+    @Column(name = "summa")
     private BigDecimal summa;
+
+    @Column(name = "purpose")
     private String purpose;
+
+    @Column(name = "date")
+    @Temporal(value = TemporalType.DATE)
     private Date date;
 
-    public Document() {
+    public Document() {}
+
+    public void setData(Account accDT, Account accCT, BigDecimal summa, String purpose, Date docDate) {
+        this.accDT = accDT;
+        this.accCT = accCT;
+        this.summa = summa;
+        this.purpose = purpose;
+        this.date = new Date(docDate.getTime());
     }
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     public long getId() {
         return id;
     }
@@ -29,77 +50,43 @@ public class Document implements Serializable{
         this.id = id;
     }
 
-    @JoinColumn(name = "acc_dt")
-    @ManyToOne
     public Account getAccDT() {
         return accDT;
     }
 
-    public void setAccDT(Account accDT) {
-        this.accDT = accDT;
-    }
-
-    @JoinColumn(name = "acc_ct")
-    @ManyToOne
     public Account getAccCT() {
         return accCT;
-    }
-
-    public void setAccCT(Account accCT) {
-        this.accCT = accCT;
     }
 
     public BigDecimal getSumma() {
         return summa;
     }
 
-    public void setSumma(BigDecimal summa) {
-        this.summa = summa;
-    }
-
     public String getPurpose() {
         return purpose;
     }
 
-    public void setPurpose(String purpose) {
-        this.purpose = purpose;
-    }
-
-    @Column(name = "data")
-    public Date getDate() {
+    public Date getDocDate() {
         return new Date(date.getTime());
-    }
-
-    public void setDate(Date date) {
-        this.date = new Date(date.getTime());
     }
 
     @Override
     public String toString() {
-        return "{ Document : " +
-                " { Client : { name : " + accDT.getClient().getName() + " }, " +
-                " { acc_num : " + accDT.getAccNum() + " }, " +
-                " { type : DT }, { summa : " + this.getSumma() + " }, { saldo : " + accDT.getSaldo() + " } }," +
-                " { Client : { name : " + accCT.getClient().getName() + " }, " +
-                " { acc_num : " + accCT.getAccNum() + " }, " +
-                " { type : CT }, { summa : " + this.getSumma() + " }, { saldo : " + accCT.getSaldo() + " } }";
+        return "Document{" +
+                "id=" + id +
+                ", accDT=" + accDT +
+                ", accCT=" + accCT +
+                ", summa=" + summa +
+                ", purpose='" + purpose + '\'' +
+                ", docDate=" + date +
+                '}';
     }
 
     @Transactional
-    public void exec(){
-        if (validData()){
-            accDT.setSaldo(accDT.getSaldo().add(summa.negate()));
-            accCT.setSaldo(accCT.getSaldo().add(summa));
+    public void moneyTransfer(){
+        if ((accDT != null) || (accCT != null) || (accDT.getSaldo().compareTo(summa) != -1)){
+            accCT.setSaldo(accCT.getSaldo().add(summa.negate()));
+            accDT.setSaldo(accDT.getSaldo().add(summa));
         }
     }
-
-    private boolean validData(){
-        boolean result = false;
-        if (accDT != null) result = true;
-        if (accCT != null) result = true;
-        if (accDT.getSaldo().compareTo(summa) != -1) result = true;
-        return result;
-    }
-
-
 }

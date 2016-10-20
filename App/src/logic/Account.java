@@ -5,18 +5,27 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "accounts")
+@Table(name = "account")
 public class Account implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     private long id;
-    private String accNum;
+
+    @Column(name = "number", unique = true, nullable = false)
+    private String number;
+
+    @ManyToOne
+    @JoinColumn(name = "idClient", referencedColumnName = "id")
     private Client client;
+
+    @Column(name = "saldo")
     private BigDecimal saldo;
 
     public Account() {
     }
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     public long getId() {
         return id;
     }
@@ -25,16 +34,14 @@ public class Account implements Serializable{
         this.id = id;
     }
 
-    @Column(name = "acc_num")
-    public String getAccNum() {
-        return accNum;
+    public String getAccNumber() {
+        return number;
     }
 
-    public void setAccNum(String accNum) {
-        this.accNum = accNum;
+    public void setAccNumber(String accNumber) {
+        this.number = accNumber;
     }
 
-    @ManyToOne
     public Client getClient() {
         return client;
     }
@@ -51,13 +58,20 @@ public class Account implements Serializable{
         this.saldo = saldo;
     }
 
+    public void setData(String accNumber, Client client, BigDecimal saldo){
+        this.number = accNumber;
+        this.client = client;
+        this.saldo = saldo;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", accNum='" + accNum + '\'' +
-                ", client=" + client.toString() +
+                ", accNumber='" + number + '\'' +
+                ", client=" + client +
                 ", saldo=" + saldo +
                 '}';
     }
+
 }

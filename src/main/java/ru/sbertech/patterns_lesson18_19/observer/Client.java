@@ -1,4 +1,4 @@
-package ru.sbertech.patterns_lesson18_19.observer;
+package ru.sbertech.patterns_lesson18_19.Observer;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;

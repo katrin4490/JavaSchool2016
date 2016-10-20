@@ -4,16 +4,23 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "clients")
+@Table(name = "client")
 public class Client implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+
+    @Column(name = "name")
     private String name;
 
     public Client() {
     }
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    public Client(String name) {
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }
@@ -38,4 +45,3 @@ public class Client implements Serializable {
                 '}';
     }
 }
-
